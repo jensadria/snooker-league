@@ -1,27 +1,28 @@
 import { NextPage } from "next";
 import Link from "next/link";
-//import { FunctionComponent } from "react";
-
 interface HeaderProps {
   children?: React.ReactNode;
 }
 
 const Header: NextPage<HeaderProps> = () => {
+  const links = [
+    { title: "Home", link: "/" },
+    { title: "Table", link: "league-table" },
+    { title: "Fixtures & Results", link: "fixtures" },
+    { title: "Statistics", link: "/stats" },
+    { title: "Rules", link: "/rules" },
+  ];
+
   return (
     <>
       <header>
-        <Link href='/'>
-          <a>Home</a>
-        </Link>
-        <Link href='/league-table'>
-          <a>Table</a>
-        </Link>
-        <Link href='/fixtures'>
-          <a>Fixtures & Results</a>
-        </Link>
-        <Link href='/stats'>
-          <a>Statistics</a>
-        </Link>
+        {links.map((link) => {
+          return (
+            <Link href={link.link} key={link.title}>
+              <a className='text-3xl p-3'>{link.title}</a>
+            </Link>
+          );
+        })}
       </header>
     </>
   );
