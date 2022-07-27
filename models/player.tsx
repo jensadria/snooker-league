@@ -1,3 +1,6 @@
+import { TeamModel } from "./team";
+
 export interface PlayerModel {
-  name: String;
+  name: string;
+  team: TeamModel;
 }
