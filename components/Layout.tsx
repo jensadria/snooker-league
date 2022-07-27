@@ -1,15 +1,17 @@
-import { FunctionComponent } from "react";
+import { NextPage } from "next";
 import Header from "./Header";
 
 type LayoutProps = {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 };
 
-export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
+const Layout: NextPage<LayoutProps> = ({ children }) => {
   return (
     <>
-      <Header></Header>
-      {children}
+      <Header />
+      <main>{children}</main>
     </>
   );
 };
+
+export default Layout;

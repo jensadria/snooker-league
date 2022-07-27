@@ -1,10 +1,9 @@
-import { FunctionComponent } from "react";
-
+import { NextPage } from "next";
 interface LeagueTableProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
-const LeagueTable: FunctionComponent<LeagueTableProps> = () => {
+const LeagueTable: NextPage<LeagueTableProps> = () => {
   return <div>League Table</div>;
 };
 

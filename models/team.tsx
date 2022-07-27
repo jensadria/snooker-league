@@ -4,5 +4,5 @@ export interface TeamModel {
   name: String;
   location: String;
   address: String;
-  members: PlayerModel[];
+  //  members: PlayerModel[];
 }
