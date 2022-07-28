@@ -1,3 +1,4 @@
+-- INSERT TEAMS
 INSERT INTO teams(name, location, address) VALUES ('Jokers', 'Northbridge', '106 James St, Northbridge WA 6003');
 INSERT INTO teams(name, location, address) VALUES ('Dark Horse', 'Northbridge', '106 James St, Northbridge WA 6003');
 INSERT INTO teams(name, location, address) VALUES ('Shooters', 'Northbridge', '106 James St, Northbridge WA 6003');
@@ -9,3 +10,5 @@ INSERT INTO teams(name, location, address) VALUES ('Centurians', 'Cannington', '
 
 INSERT INTO teams(name, location, address) VALUES ('North Perth Stars', 'North Perth', '464 Fitzgerald St, North Perth WA 6006');
 
+-- INSERT PLAYERS
+--INSERT INTO players(name, email, password_hash)

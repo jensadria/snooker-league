@@ -1,6 +1,6 @@
 -- Down
-DROP TABLE IF EXISTS teams;
-DROP TABLE IF EXISTS players;
+DROP TABLE IF EXISTS teams CASCADE;
+DROP TABLE IF EXISTS players CASCADE;
 DROP TABLE IF EXISTS fixtures CASCADE;
 DROP TABLE IF EXISTS matches CASCADE;
 
@@ -16,11 +16,14 @@ CREATE TABLE players(
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(255),
 	email VARCHAR(255),
-	password_hash VARCHAR(255)
+	previous_handicap INT,
+	password_hash VARCHAR(255),
+	current_team INT REFERENCES teams(id)
 );
 
 CREATE TABLE fixtures(
 	id SERIAL PRIMARY KEY,
+	fixture_group VARCHAR(255), -- i.e. 2022_1 means year 2022, 1st league
 	fixture_week INT,
 	date TIMESTAMP,
 	home_team INT REFERENCES teams(id) NOT NULL,

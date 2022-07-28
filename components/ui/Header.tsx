@@ -15,11 +15,11 @@ const Header: NextPage<HeaderProps> = () => {
 
   return (
     <>
-      <header>
+      <header className='flex bg-black'>
         {links.map((link) => {
           return (
             <Link href={link.link} key={link.title}>
-              <a className='text-3xl p-3'>{link.title}</a>
+              <a className='text-2xl p-3 text-white hover:text-red-600'>{link.title}</a>
             </Link>
           );
         })}
