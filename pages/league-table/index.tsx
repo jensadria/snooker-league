@@ -9,12 +9,12 @@ interface LeagueTableProps {
 const mockLeagueTable: TableRowModel[] = [
   { name: "Jokers", won: 110, lost: 70 },
   { name: "Dark Horse", won: 103, lost: 77 },
-  { name: "Jokers", won: 102, lost: 78 },
-  { name: "Jokers", won: 94, lost: 86 },
-  { name: "Jokers", won: 93, lost: 87 },
-  { name: "Jokers", won: 83, lost: 97 },
-  { name: "Jokers", won: 77, lost: 103 },
-  { name: "Jokers", won: 58, lost: 122 },
+  { name: "Titans", won: 102, lost: 78 },
+  { name: "Centurians", won: 94, lost: 86 },
+  { name: "North Perth Stars", won: 93, lost: 87 },
+  { name: "Shooters", won: 83, lost: 97 },
+  { name: "168", won: 77, lost: 103 },
+  { name: "Kids", won: 58, lost: 122 },
 ];
 
 const LeagueTable: NextPage<LeagueTableProps> = () => {

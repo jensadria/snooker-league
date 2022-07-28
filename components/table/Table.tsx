@@ -9,14 +9,16 @@ interface TableProps {
 
 const LeagueTable: NextPage<TableProps> = ({ tableData }) => {
   const computedTableData = tableData.map((team) => {
-    return { ...team, percentage: +(team.won / team.lost).toFixed(2) };
+    return { ...team, percentage: +((team.won / (team.won + team.lost)) * 100).toFixed(2) };
   });
 
   return (
     <div>
-      {computedTableData.map((team) => {
-        return <TableRow team={team} key={team.name} />;
-      })}
+      {computedTableData
+        .sort((a, b) => b.percentage - a.percentage)
+        .map((team, index) => {
+          return <TableRow team={team} key={team.name} index={index} />;
+        })}
     </div>
   );
 };

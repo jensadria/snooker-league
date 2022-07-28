@@ -23,9 +23,10 @@ CREATE TABLE players(
 
 CREATE TABLE fixtures(
 	id SERIAL PRIMARY KEY,
-	fixture_group VARCHAR(255), -- i.e. 2022_1 means year 2022, 1st league
+	fixture_group VARCHAR(255), -- i.e. 2022_1 means year 2022, 1st league, round
+	fixture_round INT,
 	fixture_week INT,
-	date TIMESTAMP,
+	date DATE NOT NULL,
 	home_team INT REFERENCES teams(id) NOT NULL,
 	away_team INT REFERENCES teams(id) NOT NULL
 );
