@@ -16,13 +16,15 @@ const Header: NextPage<HeaderProps> = () => {
   return (
     <>
       <header className='flex bg-black'>
-        {links.map((link) => {
-          return (
-            <Link href={link.link} key={link.title}>
-              <a className='text-2xl p-3 text-white hover:text-red-600'>{link.title}</a>
-            </Link>
-          );
-        })}
+        <div className=' w-4/5 mx-auto'>
+          {links.map((link) => {
+            return (
+              <Link href={link.link} key={link.title}>
+                <a className='text-2xl p-3 text-white hover:text-red-600'>{link.title}</a>
+              </Link>
+            );
+          })}
+        </div>
       </header>
     </>
   );

@@ -20,7 +20,7 @@ const Fixtures: NextPage = () => {
   console.log(fixtureWeeks);
 
   return (
-    <div>
+    <div className='w-4/5 mx-auto'>
       {fixtureWeeks.map((fixtureWeek) => {
         return <FixtureWeek fixtureWeek={fixtureWeek} fixtures={fixtures} key={fixtureWeek} />;
       })}

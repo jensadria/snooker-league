@@ -15,7 +15,9 @@ const FixtureWeek: NextPage<FixtureWeekProps> = ({ fixtureWeek, fixtures }) => {
 
   return (
     <div className='align-center m-2'>
-      <div>{format(fixtureDate, "PPPP")}</div>
+      <div className='w-full  border-b-2 border-b-green-500 text-xl p-2'>
+        {format(fixtureDate, "PPPP")}
+      </div>
       {weekFixtures.map((fixture) => {
         return <FixtureRow fixture={fixture} key={fixture.fixture_id} />;
       })}

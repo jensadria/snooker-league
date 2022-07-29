@@ -9,7 +9,9 @@ interface FixtureRowProps {
 const FixtureRow: NextPage<FixtureRowProps> = ({ fixture }) => {
   return (
     <div className='flex align-center m-2'>
+      <div className='w-72'>{fixture.location}</div>
       <div className='w-72'>{fixture.home_team}</div>
+      <div>VS</div>
       <div className='w-72 text-right'>{fixture.away_team}</div>
     </div>
   );
