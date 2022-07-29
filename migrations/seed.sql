@@ -44,4 +44,4 @@ INSERT INTO fixtures(fixture_group, fixture_round, fixture_week, date, home_team
 INSERT INTO fixtures(fixture_group, fixture_round, fixture_week, date, home_team, away_team) VALUES ('2022_1',1, 7,'2022-05-16', 1, 3);
 INSERT INTO fixtures(fixture_group, fixture_round, fixture_week, date, home_team, away_team) VALUES ('2022_1',1, 7,'2022-05-16', 8, 4);
 INSERT INTO fixtures(fixture_group, fixture_round, fixture_week, date, home_team, away_team) VALUES ('2022_1',1, 7,'2022-05-16', 5, 7);
-INSERT INTO fixtures(fixture_group, fixture_round, fixture_week, date, home_team, away_team) VALUES ('2022_1',1, 7,'2022-05-16', 6, 2);
+INSERT INTO fixtures(fixture_group, fixture_round, fixture_week, date, home_team, away_team) VALUES ('2022_1',1, 7,'2022-05-16', 6, 2)

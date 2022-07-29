@@ -1,8 +1,9 @@
 export interface FixtureModel {
+	fixture_id: number;
 	fixture_week: number;
-	date: Date;
-	homeTeam: String;
-	awayTeam: String;
-	homeTeamPoints?: number;
-	awayTeamPoints?: number
+	date: string;
+	home_team: string;
+	away_team: string;
+	home_team_points?: number;
+	away_team_points?: number
 }
