@@ -1,8 +1,8 @@
 import axios from "axios";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
-import FixtureRow from "../../components/fixtures/FixtureRow";
 import { FixtureModel } from "../../models/fixture";
+import FixtureWeek from "../../components/fixtures/FixtureWeek";
 //import GetData from "../../utils/dataFetcher";
 
 //interface FixturesProps {}
@@ -16,12 +16,13 @@ const Fixtures: NextPage = () => {
     //  setFixtures(fetchedFixtures);
   }, []);
 
-  console.log(fixtures);
+  const fixtureWeeks = Array.from(new Set(fixtures.map((fixture) => fixture.fixture_week)));
+  console.log(fixtureWeeks);
 
   return (
     <div>
-      {fixtures.map((fixture) => {
-        return <FixtureRow fixture={fixture} key={fixture.fixture_id} />;
+      {fixtureWeeks.map((fixtureWeek) => {
+        return <FixtureWeek fixtureWeek={fixtureWeek} fixtures={fixtures} key={fixtureWeek} />;
       })}
     </div>
   );
