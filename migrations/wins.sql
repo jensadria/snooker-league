@@ -2,6 +2,13 @@ CREATE MATERIALIZED VIEW outcomes AS
 SELECT frames.id, frames.match_id,
 CASE
 	WHEN player_home_score > player_away_score
+	THEN frames.player_home
+	WHEN player_home_score < player_away_score
+	THEN frames.player_away
+	END
+	AS winner_player_id,
+CASE
+	WHEN player_home_score > player_away_score
 	THEN 'home'
 	WHEN player_home_score < player_away_score
 	THEN 'away'
@@ -25,3 +32,8 @@ CASE
 FROM outcomes
 GROUP BY match_id; 
 	
+
+--CREATE MATERIALIZED VIEW players_frames AS
+--SELECT 
+--	COUNT()
+	 
