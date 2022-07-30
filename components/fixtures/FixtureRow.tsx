@@ -1,18 +1,20 @@
 import { NextPage } from "next";
-import { FixtureModel } from "../../models/fixture";
+import { MatchModel } from "../../models/match";
 import { format } from "date-fns";
 
 interface FixtureRowProps {
-  fixture: FixtureModel;
+  match: MatchModel;
 }
 
-const FixtureRow: NextPage<FixtureRowProps> = ({ fixture }) => {
+const FixtureRow: NextPage<FixtureRowProps> = ({ match }) => {
   return (
     <div className='flex align-center m-2'>
-      <div className='w-72'>{fixture.location}</div>
-      <div className='w-72'>{fixture.home_team}</div>
+      <div className='w-72'>{match.location}</div>
+      <div className='w-72'>{match.home_team}</div>
+      <div>{match.home_score}</div>
       <div>VS</div>
-      <div className='w-72 text-right'>{fixture.away_team}</div>
+      <div>{match.away_score}</div>
+      <div className='w-72 text-right'>{match.away_team}</div>
     </div>
   );
 };

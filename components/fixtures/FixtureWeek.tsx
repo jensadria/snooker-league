@@ -1,25 +1,25 @@
 import { NextPage } from "next";
-import { FixtureModel } from "../../models/fixture";
+import { MatchModel } from "../../models/match";
 import FixtureRow from "./FixtureRow";
 import { format } from "date-fns";
 
 interface FixtureWeekProps {
   fixtureWeek: number;
-  fixtures: FixtureModel[];
+  matches: MatchModel[];
   key: number;
 }
 
-const FixtureWeek: NextPage<FixtureWeekProps> = ({ fixtureWeek, fixtures }) => {
-  const weekFixtures = fixtures.filter((fixture) => fixture.fixture_week === fixtureWeek);
-  const fixtureDate = new Date(weekFixtures[0].date);
+const FixtureWeek: NextPage<FixtureWeekProps> = ({ fixtureWeek, matches }) => {
+  const weekMatches = matches.filter((match) => match.match_week === fixtureWeek);
+  const matchDate = new Date(weekMatches[0].date);
 
   return (
     <div className='align-center m-2'>
       <div className='w-full  border-b-2 border-b-green-500 text-xl p-2'>
-        {format(fixtureDate, "PPPP")}
+        {format(matchDate, "PPPP")}
       </div>
-      {weekFixtures.map((fixture) => {
-        return <FixtureRow fixture={fixture} key={fixture.fixture_id} />;
+      {weekMatches.map((match) => {
+        return <FixtureRow match={match} key={match.match_id} />;
       })}
     </div>
   );

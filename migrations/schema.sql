@@ -1,8 +1,10 @@
 -- Down
 DROP TABLE IF EXISTS teams CASCADE;
 DROP TABLE IF EXISTS players CASCADE;
-DROP TABLE IF EXISTS fixtures CASCADE;
 DROP TABLE IF EXISTS matches CASCADE;
+DROP TABLE IF EXISTS frames CASCADE;
+DROP MATERIALIZED VIEW IF EXISTS outcomes ;
+DROP MATERIALIZED VIEW IF EXISTS results ;
 
 -- Up
 CREATE TABLE teams(
@@ -21,20 +23,26 @@ CREATE TABLE players(
 	current_team INT REFERENCES teams(id)
 );
 
-CREATE TABLE fixtures(
+CREATE TABLE matches(
 	id SERIAL PRIMARY KEY,
-	fixture_group VARCHAR(255), -- i.e. 2022_1 means year 2022, 1st league, round
-	fixture_round INT,
-	fixture_week INT,
+	year INT,
+	match_round INT,
+	match_week INT,
 	date DATE NOT NULL,
 	home_team INT REFERENCES teams(id) NOT NULL,
+	--home_team_score INT,
 	away_team INT REFERENCES teams(id) NOT NULL
+	--away_team_score INT
 );
 
- CREATE TABLE matches(
+ CREATE TABLE frames(
 	id SERIAL PRIMARY KEY,
-	fixture_id INT REFERENCES fixtures(id),
+	frame_nr INT,
+	match_id INT REFERENCES matches(id),
 	player_home INT REFERENCES players(id),
+	player_home_score INT,
 	player_away INT REFERENCES players(id),
-	highest_break INT REFERENCES players(id)
+	player_away_score INT,
+	highest_break INT REFERENCES players(id),
+	highest_break_score INT
  );
