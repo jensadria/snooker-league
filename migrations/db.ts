@@ -1,7 +1,7 @@
 import pg from 'pg'
 
 let db;
-if (process.env.NEXT_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
 	db = new pg.Pool({
 		connectionString: process.env.DATABASE_URL,
 		ssl: {
