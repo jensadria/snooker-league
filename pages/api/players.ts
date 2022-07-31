@@ -7,7 +7,7 @@ export default async function getAllPlayers(
 	res: NextApiResponse
 ) {
 	if (req.method === 'GET') {
-		const sql = "SELECT players.name,email,previous_handicap,t.name AS team_name FROM players LEFT JOIN	teams as t ON t.id = current_team;"
+		const sql = "SELECT players.id AS player_id, players.name,email,previous_handicap,t.name AS team_name FROM players LEFT JOIN	teams as t ON t.id = current_team;"
 		const players = await db.query(sql)
 
 		res.status(200).json(players.rows)
