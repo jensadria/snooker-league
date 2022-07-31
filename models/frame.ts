@@ -6,4 +6,6 @@ export interface FrameModel {
 	player_home_score: number;
 	player_away: string;
 	player_away_score: number;
+	highest_break?: number;
+	highest_break_score?: number
 }

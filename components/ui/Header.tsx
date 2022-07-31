@@ -7,8 +7,8 @@ interface HeaderProps {
 const Header: NextPage<HeaderProps> = () => {
   const links = [
     { title: "Home", link: "/" },
-    { title: "Table", link: "league-table" },
-    { title: "Fixtures & Results", link: "fixtures" },
+    { title: "Table", link: "/league-table" },
+    { title: "Fixtures & Results", link: "/fixtures" },
     { title: "Statistics", link: "/stats" },
     { title: "Rules", link: "/rules" },
   ];
