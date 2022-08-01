@@ -16,7 +16,7 @@ const FixtureRow: NextPage = () => {
   useEffect(() => {
     if (id) {
       axios.get(`/api/matches/${id}`).then((res) => setMatchDetails(res.data));
-      axios.get(`/api/frames/${id}`).then((res) => setMatchFrames(res.data));
+      axios.get(`/api/frames/match/${id}`).then((res) => setMatchFrames(res.data));
     }
   }, [id]);
 

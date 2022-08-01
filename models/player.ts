@@ -1,6 +1,7 @@
-import { TeamModel } from "./team";
-
 export interface PlayerModel {
-  name: string;
-  team: TeamModel;
+	player_id: number;
+	name: string;
+	team_name: string;
+	previous_handicap: number;
+	email: string
 }
