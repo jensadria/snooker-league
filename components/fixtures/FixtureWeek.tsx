@@ -4,9 +4,9 @@ import FixtureRow from "./FixtureRow";
 import { format } from "date-fns";
 
 interface FixtureWeekProps {
-  fixtureWeek: number;
+  fixtureWeek: number | null;
   matches: MatchModel[];
-  key: number;
+  key: number | null;
 }
 
 const FixtureWeek: NextPage<FixtureWeekProps> = ({ fixtureWeek, matches }) => {
