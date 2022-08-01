@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import db from '../../migrations/db'
-import { MatchModel } from '../../models/match'
+import db from '../../../migrations/db'
+import { MatchModel } from '../../../models/match'
 
 export default async function getAllFixtures(
 	req: NextApiRequest,

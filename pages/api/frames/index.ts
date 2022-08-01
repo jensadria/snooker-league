@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import db from '../../migrations/db'
-import { FrameModel } from '../../models/frame'
+import db from '../../../migrations/db'
+import { FrameModel } from '../../../models/frame'
 
 export default async function getAllFrames(
 	req: NextApiRequest,
