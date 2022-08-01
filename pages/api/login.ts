@@ -7,7 +7,7 @@ import { sign } from 'jsonwebtoken';
 //type Data = {
 //	name: string
 //}
-
+/*
 export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse
@@ -31,3 +31,4 @@ export default async function handler(
 		});
 	}
 }
+*/
