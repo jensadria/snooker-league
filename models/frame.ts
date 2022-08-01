@@ -1,7 +1,7 @@
 export interface FrameModel {
 	frame_id: number;
 	frame_nr: number;
-	fixture_id: number;
+	//fixture_id: number;
 	player_home: string;
 	player_home_score: number;
 	player_away: string;

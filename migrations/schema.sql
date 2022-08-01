@@ -20,7 +20,7 @@ CREATE TABLE players(
 	email VARCHAR(255),
 	previous_handicap INT,
 	password_hash VARCHAR(255),
-	current_team INT REFERENCES teams(id)
+	team_id INT REFERENCES teams(id)
 );
 
 CREATE TABLE matches(

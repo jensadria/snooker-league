@@ -94,20 +94,20 @@ INSERT INTO matches(year, match_round, match_week, date, home_team, away_team) V
 -- $2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO - "password"
 
 
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Nee Chua', 'nee@fakemail.com',-12,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Mau Diep', 'mau@fakemail.com',-18,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Tuan Quach', 'tuan@fakemail.com',-18,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Viet Thai', 'viet@fakemail.com',3,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Nee Chua', 'nee@fakemail.com',-12,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Mau Diep', 'mau@fakemail.com',-18,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Tuan Quach', 'tuan@fakemail.com',-18,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Viet Thai', 'viet@fakemail.com',3,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
 
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Sing Diep', 'sing@fakemail.com',0,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Mun Zhao', 'mun@fakemail.com',0,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Kwong Huen', 'kwong@fakemail.com',12,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Dennis Wan', 'dennis@fakemail.com',18,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Sing Diep', 'sing@fakemail.com',0,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Mun Zhao', 'mun@fakemail.com',0,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Kwong Huen', 'kwong@fakemail.com',12,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Dennis Wan', 'dennis@fakemail.com',18,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
 
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Peter McCullagh', 'peter@fakemail.com',-40,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Naqi Alizada', 'naqi@fakemail.com',0,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Domenic Cutri', 'dom@fakemail.com',-3,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
-INSERT INTO players(name, email, previous_handicap, password_hash, current_team) VALUES ('Michael Beeck', 'michael@fakemail.com',3,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Peter McCullagh', 'peter@fakemail.com',-40,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Naqi Alizada', 'naqi@fakemail.com',0,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Domenic Cutri', 'dom@fakemail.com',-3,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
+INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Michael Beeck', 'michael@fakemail.com',3,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
 
 INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (1, 1, 1,83 ,5,24);
 INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (2, 1, 2,60 ,6,30);

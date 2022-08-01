@@ -11,3 +11,17 @@ export interface MatchModel {
 	home_score?: number;
 	away_score?: number
 }
+
+export const emptyMatch = {
+	match_id: null,
+	year: null,
+	match_round: null,
+	match_week: null,
+	date: '',
+	home_team: '',
+	away_team: '',
+	address: '',
+	location: '',
+	home_score: null,
+	away_score: null
+}
