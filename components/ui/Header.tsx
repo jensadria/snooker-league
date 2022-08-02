@@ -1,10 +1,13 @@
 import { NextPage } from "next";
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
 interface HeaderProps {
   children?: React.ReactNode;
 }
 
 const Header: NextPage<HeaderProps> = () => {
+  const { data: session } = useSession();
+
   const links = [
     { title: "Home", link: "/" },
     { title: "Table", link: "/league-table" },
@@ -12,6 +15,7 @@ const Header: NextPage<HeaderProps> = () => {
     { title: "Statistics", link: "/stats" },
     { title: "Rules", link: "/rules" },
   ];
+  console.log(session);
 
   return (
     <>
@@ -25,6 +29,11 @@ const Header: NextPage<HeaderProps> = () => {
             );
           })}
         </div>
+        {!session && (
+          <Link href='/api/auth/signin' className='text-white'>
+            Login
+          </Link>
+        )}
       </header>
     </>
   );

@@ -35,9 +35,6 @@ const LeagueTable: NextPage = () => {
     }
   }, [playerId]);
 
-  console.log(playerDetails);
-  console.log(playerFrames);
-
   return (
     <div className='w-4/5 m-auto'>
       {playerDetails && (
@@ -51,7 +48,12 @@ const LeagueTable: NextPage = () => {
           {playerFrames.map((frame) => {
             return (
               <div key={frame.frame_id} className='flex'>
-                <div>{frame.date}</div>
+                <div>{format(new Date(frame.date), "PPPP")}</div>
+                <div>{frame.match_week}</div>
+                <div>{frame.player_home}</div>
+                <div>{frame.player_home_score}</div>
+                <div>{frame.player_away_score}</div>
+                <div>{frame.player_away}</div>
               </div>
             );
           })}
