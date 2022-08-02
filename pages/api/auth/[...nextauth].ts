@@ -16,8 +16,8 @@ export default NextAuth({
 			authorize: (credentials) => {
 				// database look up
 				if (
-					credentials.username === "john" &&
-					credentials.password === "test"
+					credentials?.username === "john" &&
+					credentials?.password === "test"
 				) {
 					return {
 						id: 2,

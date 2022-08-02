@@ -40,8 +40,10 @@ CREATE TABLE matches(
 	frame_nr INT,
 	match_id INT REFERENCES matches(id),
 	player_home INT REFERENCES players(id),
+	player_home_handicap INT DEFAULT 0,
 	player_home_score INT,
 	player_away INT REFERENCES players(id),
+	player_away_handicap INT DEFAULT 0,
 	player_away_score INT,
 	highest_break INT REFERENCES players(id),
 	highest_break_score INT
