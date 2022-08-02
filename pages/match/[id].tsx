@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { MatchModel, emptyMatch } from "../../models/match";
 import { FrameModel } from "../../models/frame";
+import Link from "next/link";
 
 const FixtureRow: NextPage = () => {
   const [matchDetails, setMatchDetails] = useState<MatchModel>(emptyMatch);
@@ -19,6 +20,9 @@ const FixtureRow: NextPage = () => {
       axios.get(`/api/frames/match/${id}`).then((res) => setMatchFrames(res.data));
     }
   }, [id]);
+
+  console.log(matchDetails);
+  console.log(matchFrames);
 
   const winner = (score, oppScore) => {
     return score > oppScore && "bg-green-200";
@@ -46,7 +50,12 @@ const FixtureRow: NextPage = () => {
                       frame.player_away_score
                     )}`}
                   >
-                    <div>{frame.player_home}</div>
+                    <Link href={`/player/${frame.player_home_id}`}>
+                      <a>
+                        <div>{frame.player_home}</div>
+                      </a>
+                    </Link>
+
                     <div className='w-1/5 text-right'>{frame.player_home_score}</div>
                   </div>
                   <div

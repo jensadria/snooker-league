@@ -94,30 +94,74 @@ INSERT INTO matches(year, match_round, match_week, date, home_team, away_team) V
 -- $2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO - "password"
 
 
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Nee Chua', 'nee@fakemail.com',-12,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Mau Diep', 'mau@fakemail.com',-18,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Tuan Quach', 'tuan@fakemail.com',-18,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Viet Thai', 'viet@fakemail.com',3,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 1);
+INSERT INTO players(name, previous_handicap, team_id) VALUES ('Nee Chua',-12, 1);
+INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Mau Diep',-18, 1);
+INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Tuan Quach',-18, 1);
+INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Viet Thai',3, 1);
 
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Sing Diep', 'sing@fakemail.com',0,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Mun Zhao', 'mun@fakemail.com',0,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Kwong Huen', 'kwong@fakemail.com',12,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Dennis Wan', 'dennis@fakemail.com',18,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 4);
+INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Sing Diep',0, 4);
+INSERT INTO players(name, previous_handicap, team_id) VALUES ('Mun Zhao',0, 4);
+INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Kwong Huen',12, 4);
+INSERT INTO players(name, previous_handicap, team_id) VALUES ('Dennis Wan',18, 4);
 
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Peter McCullagh', 'peter@fakemail.com',-40,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Naqi Alizada', 'naqi@fakemail.com',0,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Domenic Cutri', 'dom@fakemail.com',-3,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
-INSERT INTO players(name, email, previous_handicap, password_hash, team_id) VALUES ('Michael Beeck', 'michael@fakemail.com',3,'$2b$10$vkSEjPUVM5NZYh7CRrdykO1FNgfGU07wGYjrdrX6iC5dSQDFvLhIO', 7);
+INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Peter McCullagh',-40, 7);
+INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Naqi Alizada',0, 7);
+INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Domenic Cutri',-3, 7);
+INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Michael Beeck',3, 7);
 
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (1, 1, 1,83 ,5,24);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (2, 1, 2,60 ,6,30);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (3, 1, 3,65 ,7,15);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (4, 1, 4,46 ,8,38);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (5, 1, 1,90 ,6,53);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (6, 1, 2,80 ,7,20);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (7, 1, 3,51 ,8,31);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (8, 1, 4,92 ,5,36);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (9, 1, 1,73 ,7,62);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (10, 1, 2,48 ,8,51);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (11, 1, 3,30 ,5,60);
-INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (12, 1, 4,20 ,6,80);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (1, 1, 1,83 ,5,24);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (2, 1, 2,60 ,6,30);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (3, 1, 3,65 ,7,15);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (4, 1, 4,46 ,8,38);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (5, 1, 1,90 ,6,53);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (6, 1, 2,80 ,7,20);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (7, 1, 3,51 ,8,31);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (8, 1, 4,92 ,5,36);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (9, 1, 1,73 ,7,62);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (10, 1, 2,48 ,8,51);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (11, 1, 3,30 ,5,60);
+--INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (12, 1, 4,20 ,6,80);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (1, 1, 1, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (1, 1, 5, FALSE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (2, 1, 2, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (2, 1, 6, FALSE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (3, 1, 3, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (3, 1, 7, FALSE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (4, 1, 4, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (4, 1, 8, FALSE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (5, 1, 1, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (5, 1, 6, FALSE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (6, 1, 2, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (6, 1, 7, FALSE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (7, 1, 3, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (7, 1, 8, FALSE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (8, 1, 4, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (8, 1, 5, FALSE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (9, 1, 1, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (9, 1, 7, FALSE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (10, 1, 2, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (10, 1, 8, TRUE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (11, 1, 3, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (11, 1, 5, TRUE);
+
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (12, 1, 4, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (12, 1, 6, TRUE);
+
+--CREATE TABLE frames(
+--	id SERIAL PRIMARY KEY,
+--	match_id INT REFERENCES matches(id),
+--	player_id INT REFERENCES players(id),
+--	won BOOLEAN DEFAULT FALSE,
+--	high_break INT
+--)

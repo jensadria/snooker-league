@@ -6,7 +6,7 @@ import Image from "next/image";
 //import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <div className='w-4/5 m-auto'>

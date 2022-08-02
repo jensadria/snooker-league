@@ -66,3 +66,61 @@ LEFT JOIN teams t1 ON p1.id = t1.id
 LEFT JOIN teams t2 ON p2.id = t2.id
 WHERE player_away = 8 
 	OR player_home = 8;
+
+
+SELECT matches.id AS match_id, year, match_round, match_week, date, t1.name AS home_team,r.home_score, t2.name AS away_team,r.away_score, t1.location
+from matches 
+LEFT JOIN teams t1 ON home_team = t1.id
+LEFT JOIN teams t2 ON away_team = t2.id
+LEFT JOIN results r ON matches.id = r.match_id
+WHERE home_team =1 OR away_team =1
+ORDER BY matches.id;
+
+SELECT * 
+FROM frames
+JOIN outcomes ON frames.id = outcomes.id;
+
+SELECT * 
+FROM players
+JOIN outcomes ON outcomes.winning_player_id = players.id;
+
+FRAMES
+player_id  frame_id  playing_ground   scored
+
+
+
+SELECT 
+m.id AS match_id, 
+year, 
+m.match_round, 
+m.match_week, 
+date, 
+ht.name AS home_team, 
+awt.name AS away_team, 
+ht.address, 
+ht.location 
+FROM matches m
+LEFT JOIN teams ht ON home_team = ht.id 
+LEFT JOIN teams awt ON away_team = awt.id;
+
+
+SELECT 
+player_id,
+COUNT(*) FILTER(WHERE won = 't') AS frames_won, 
+COUNT(*) FILTER(WHERE won = 'f') AS frames_lost 
+FROM frames 
+GROUP BY player_id;
+
+-- STATS QUERY
+SELECT 
+p.id,
+p.name,
+p.previous_handicap,
+t.name,
+pwl.frames_won,
+pwl.frames_lost,
+(pwl.frames_won + pwl.frames_lost) AS total_frames,
+p.previous_handicap
+FROM players p
+LEFT JOIN player_wins_losses pwl ON p.id = pwl.player_id
+LEFT JOIN teams t ON t.id = p.team_id;

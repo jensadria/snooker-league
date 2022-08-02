@@ -24,16 +24,27 @@ interface Frame {
 const LeagueTable: NextPage = () => {
   const [playerDetails, setPlayerDetails] = useState<PlayerModel>();
   const [playerFrames, setPlayerFrames] = useState<Frame[]>();
+  const [playerFixtures, setPlayerFixtures] = useState();
 
   const router = useRouter();
   const { playerId } = router.query;
 
   useEffect(() => {
     if (playerId) {
-      axios.get(`/api/players/${playerId}`).then((res) => setPlayerDetails(res.data));
-      axios.get(`/api/frames/player/${playerId}`).then((res) => setPlayerFrames(res.data));
+      fetchData();
     }
-  }, [playerId]);
+  }, []);
+
+  const fetchData = async () => {
+    const playerDetailsResponse = await axios.get(`/api/players/${playerId}`);
+    setPlayerDetails(playerDetailsResponse.data);
+    const playerFramesResponse = await axios.get(`/api/frames/player/${playerId}`);
+    setPlayerFrames(playerFramesResponse.data);
+    const playerFixturesResponse = await axios.get(`/api/frames/team/${playerDetails.team_id}`);
+    setPlayerFixtures(playerFixturesResponse.data);
+  };
+
+  console.log(playerFixtures);
 
   return (
     <div className='w-4/5 m-auto'>

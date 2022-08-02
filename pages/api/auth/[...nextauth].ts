@@ -67,10 +67,10 @@ export default NextAuth({
 			return session;
 		},
 	},
-	secret: "test",
+	secret: process.env.SECRET_KEY,
 	jwt: {
 		secret: "test",
-		//encryption: true,
+		encryption: true,
 	},
 	//pages: {
 	//	signIn: "/auth",
