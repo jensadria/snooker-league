@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import db from '../../migrations/db';
-import { compare } from 'bcrypt';
-import { sign } from 'jsonwebtoken';
+//import type { NextApiRequest, NextApiResponse } from 'next';
+//import db from '../../migrations/db';
+//import { compare } from 'bcrypt';
+//import { sign } from 'jsonwebtoken';
 
 
 //type Data = {
