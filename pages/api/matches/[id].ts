@@ -11,7 +11,7 @@ export default async function handler(
 	res: NextApiResponse<Data>
 ) {
 	const { id } = req.query
-	const sql = "SELECT matches.id AS match_id, year, match_round, match_week, date, ht.name AS home_team, r.home_score, at.name AS away_team, r.away_score, ht.address, ht.location FROM matches LEFT JOIN teams AS ht ON home_team = ht.id LEFT JOIN teams AS at ON away_team = at.id LEFT JOIN results AS r ON r.match_id = matches.id WHERE matches.id = $1"
+	const sql = "SELECT m.id AS match_id, m.year, m.match_round, m.match_week, m.date, t1.name AS home_team, t2.name AS away_team, t1.address, t1.location, r.home_score, r.away_score FROM matches m LEFT JOIN results r ON m.id = r.match_id LEFT JOIN teams t1 on t1.id = m.home_team LEFT JOIN teams t2 on t2.id = m.away_team WHERE m.id = $1"
 	const match = await db.query(sql, [id])
 	res.status(200).json(match.rows[0])
 	//res.status(200).json({ name: 'John Doe' })

@@ -122,7 +122,7 @@ INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Michael Beeck',3
 --INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (11, 1, 3,30 ,5,60);
 --INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (12, 1, 4,20 ,6,80);
 
-INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (1, 1, 1, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location, high_break) VALUES (1, 1, 1, 1, 'home', 63);
 INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (1, 1, 5, 0, 'away');
 
 INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (2, 1, 2, 1, 'home');

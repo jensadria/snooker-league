@@ -4,5 +4,7 @@ export interface PlayerModel {
 	team_name: string;
 	team_id: number;
 	previous_handicap: number;
-	email: string
+	frames_won: number;
+	frames_lost: number;
+	total_frames: number;
 }

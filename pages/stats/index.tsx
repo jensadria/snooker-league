@@ -1,10 +1,25 @@
+import axios from "axios";
 import { NextPage } from "next";
-interface StatisticsProps {
-  children: React.ReactNode;
-}
+import { useEffect, useState } from "react";
+import Stats from "../../components/stats/Stats";
+import { PlayerModel } from "../../models/player";
 
-const Statistics: NextPage<StatisticsProps> = () => {
-  return <div>Statistics</div>;
+//interface StatisticsProps {
+//  children: React.ReactNode;
+//}
+
+const Statistics: NextPage = () => {
+  const [players, setPlayers] = useState<PlayerModel[]>([]);
+
+  useEffect(() => {
+    axios.get(`/api/players`).then((res) => setPlayers(res.data));
+  }, []);
+
+  return (
+    <div className='w-4/5 mx-auto'>
+      <Stats players={players} />
+    </div>
+  );
 };
 
 export default Statistics;
