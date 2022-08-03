@@ -1,8 +1,8 @@
 CREATE MATERIALIZED VIEW player_wins_losses AS
 SELECT 
 player_id,
-SUM(score) AS frames_won,
-COUNT(*) FILTER(WHERE score = 0) AS frames_lost
+SUM(score) AS frames_won ,
+COUNT(*) FILTER(WHERE score = 0) AS frames_lost 
 FROM frames 
 GROUP BY player_id;
 
