@@ -1,7 +1,6 @@
 import { NextPage } from "next";
-import { totalmem } from "os";
 import { PlayerModel } from "../../models/player";
-import handicaps from "../../models/handicaps";
+import { handicaps } from "../../models/handicaps";
 interface StatsProps {
   players: PlayerModel[];
 }

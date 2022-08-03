@@ -9,6 +9,7 @@ import Link from "next/link";
 
 const FixtureRow: NextPage = () => {
   const [matchDetails, setMatchDetails] = useState<MatchModel>(emptyMatch);
+  const [players, setPlayers] = useState<[] | undefined>();
   const [matchFrames, setMatchFrames] = useState<FrameModel[]>([]);
 
   const router = useRouter();
@@ -17,12 +18,18 @@ const FixtureRow: NextPage = () => {
   useEffect(() => {
     if (id) {
       axios.get(`/api/matches/${id}`).then((res) => setMatchDetails(res.data));
-      axios.get(`/api/frames/match/${id}`).then((res) => setMatchFrames(res.data));
+      //  axios.get(`/api/frames/match/${id}`).then((res) => setMatchFrames(res.data));
+      axios.get(`/api/players`).then((res) => setPlayers(res.data));
     }
   }, [id]);
 
+  const homeTeamPlayers = players?.filter((player) => player.team_name === matchDetails.home_team);
+  const awayTeamPlayers = players?.filter((player) => player.team_name === matchDetails.away_team);
+
   console.log(matchDetails);
   console.log(matchFrames);
+  console.log(homeTeamPlayers);
+  console.log(awayTeamPlayers);
 
   const winner = (score, oppScore) => {
     return score > oppScore && "bg-green-200";
@@ -38,41 +45,6 @@ const FixtureRow: NextPage = () => {
           {matchDetails.home_team} VS {matchDetails.away_team}
         </div>
         <div className='mr-5 text-2xl italic'>{matchDetails.location}</div>
-      </div>
-      <div className='w-4/5 mx-auto'>
-        {matchFrames.length !== 0
-          ? matchFrames.map((frame) => {
-              return (
-                <div className='flex justify-between mb-2 gap-5' key={frame.frame_id}>
-                  <div
-                    className={`w-1/2 justify-end flex ${winner(
-                      frame.player_home_score,
-                      frame.player_away_score
-                    )}`}
-                  >
-                    <Link href={`/player/${frame.player_home_id}`}>
-                      <a>
-                        <div>{frame.player_home}</div>
-                      </a>
-                    </Link>
-
-                    <div className='w-1/5 text-right'>{frame.player_home_score}</div>
-                  </div>
-                  <div
-                    className={`w-1/2 justify-start flex ${winner(
-                      frame.player_away_score,
-                      frame.player_home_score
-                    )}`}
-                  >
-                    <div className='w-1/5 text-left'>{frame.player_away_score}</div>
-                    <div>{frame.player_away}</div>
-                  </div>
-                  {/*<div>{frame.player_away_score}</div>
-                  <div className='w-2/5'>{frame.player_away}</div>*/}
-                </div>
-              );
-            })
-          : "No Frames"}
       </div>
     </div>
   );
