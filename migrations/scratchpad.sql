@@ -154,6 +154,6 @@ LEFT JOIN teams t1 on t1.id = m.home_team
 LEFT JOIN teams t2 on t2.id = m.away_team;
 
 -- LEAGUE TABLE
-SELECT SUM(home_score) FROM matches m
+SELECT home_team,SUM(home_score) FROM matches m
 LEFT JOIN results r ON r.match_id = m.id
 GROUP BY home_team;

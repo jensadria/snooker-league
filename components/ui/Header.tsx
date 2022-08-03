@@ -15,7 +15,6 @@ const Header: NextPage<HeaderProps> = () => {
     { title: "Statistics", link: "/stats" },
     { title: "Rules", link: "/rules" },
   ];
-  console.log(session);
 
   return (
     <>
