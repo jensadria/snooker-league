@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
+import { signOut, signIn, useSession } from "next-auth/react";
 interface HeaderProps {
   children?: React.ReactNode;
 }
@@ -28,10 +28,14 @@ const Header: NextPage<HeaderProps> = () => {
             );
           })}
         </div>
-        {!session && (
-          <Link href='/api/auth/signin' className='text-white'>
-            Login
-          </Link>
+        {session ? (
+          <button className='text-white' onClick={signOut}>
+            Signout
+          </button>
+        ) : (
+          <button className='text-white' onClick={signIn}>
+            Sign In
+          </button>
         )}
       </header>
     </>
