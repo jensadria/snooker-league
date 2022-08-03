@@ -113,10 +113,10 @@ GROUP BY player_id;
 
 -- STATS QUERY
 SELECT 
-p.id,
+p.id AS player_id,
 p.name,
 p.previous_handicap,
-t.name,
+t.name AS team_name,
 pwl.frames_won,
 pwl.frames_lost,
 (pwl.frames_won + pwl.frames_lost) AS total_frames,
@@ -124,3 +124,31 @@ p.previous_handicap
 FROM players p
 LEFT JOIN player_wins_losses pwl ON p.id = pwl.player_id
 LEFT JOIN teams t ON t.id = p.team_id;
+
+
+-- RESULTS BY MATCH ID
+CREATE MATERIALIZED VIEW results AS
+SELECT 
+match_id,
+SUM(score)FILTER(WHERE location = 'home') AS home_score,
+SUM(score)FILTER(WHERE location = 'away') AS away_score
+FROM frames
+GROUP BY match_id;
+
+-- MATCHES
+SELECT 
+m.id AS match_id,
+m.year,
+m.match_round,
+m.match_week,
+m.date,
+t1.name AS home_team,
+t2.name AS away_team,
+t1.address,
+t1.location,
+r.home_score,
+r.away_score
+FROM matches m 
+LEFT JOIN results r ON m.id = r.match_id
+LEFT JOIN teams t1 on t1.id = m.home_team
+LEFT JOIN teams t2 on t2.id = m.away_team;

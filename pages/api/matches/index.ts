@@ -7,7 +7,7 @@ export default async function getAllFixtures(
 	res: NextApiResponse<MatchModel>
 ) {
 	if (req.method === 'GET') {
-		const sql = "SELECT m.id AS match_id, year, m.match_round, m.match_week, date, ht.name AS home_team, r.home_score, awt.name AS away_team, r.away_score, ht.address, ht.location FROM matches m LEFT JOIN teams AS ht ON home_team = ht.id LEFT JOIN teams AS awt ON away_team = awt.id LEFT JOIN results AS r ON r.match_id = m.id;"
+		const sql = "SELECT m.id AS match_id, m.year, m.match_round, m.match_week, m.date, t1.name AS home_team, t2.name AS away_team, t1.address, t1.location, r.home_score, r.away_score FROM matches m LEFT JOIN results r ON m.id = r.match_id LEFT JOIN teams t1 on t1.id = m.home_team LEFT JOIN teams t2 on t2.id = m.away_team;"
 		const matches = await db.query(sql)
 
 		res.status(200).json(matches.rows)

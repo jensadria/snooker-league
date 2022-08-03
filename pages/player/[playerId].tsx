@@ -31,20 +31,12 @@ const LeagueTable: NextPage = () => {
 
   useEffect(() => {
     if (playerId) {
-      fetchData();
+      axios.get(`/api/players/${playerId}`).then((res) => setPlayerDetails(res.data));
+      axios.get(`/api/frames/player/${playerId}`).then((res) => setPlayerFrames(res.data));
     }
-  }, []);
+  }, [playerId]);
 
-  const fetchData = async () => {
-    const playerDetailsResponse = await axios.get(`/api/players/${playerId}`);
-    setPlayerDetails(playerDetailsResponse.data);
-    const playerFramesResponse = await axios.get(`/api/frames/player/${playerId}`);
-    setPlayerFrames(playerFramesResponse.data);
-    const playerFixturesResponse = await axios.get(`/api/frames/team/${playerDetails.team_id}`);
-    setPlayerFixtures(playerFixturesResponse.data);
-  };
-
-  console.log(playerFixtures);
+  console.log(playerDetails);
 
   return (
     <div className='w-4/5 m-auto'>

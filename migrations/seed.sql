@@ -122,41 +122,41 @@ INSERT INTO players(name, previous_handicap,  team_id) VALUES ('Michael Beeck',3
 --INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (11, 1, 3,30 ,5,60);
 --INSERT INTO frames(frame_nr, match_id, player_home, player_home_score, player_away, player_away_score) VALUES (12, 1, 4,20 ,6,80);
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (1, 1, 1, TRUE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (1, 1, 5, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (1, 1, 1, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (1, 1, 5, 0, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (2, 1, 2, TRUE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (2, 1, 6, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (2, 1, 2, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (2, 1, 6, 0, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (3, 1, 3, TRUE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (3, 1, 7, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (3, 1, 3, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (3, 1, 7, 0, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (4, 1, 4, TRUE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (4, 1, 8, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (4, 1, 4, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (4, 1, 8, 0, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (5, 1, 1, TRUE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (5, 1, 6, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (5, 1, 1, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (5, 1, 6, 0, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (6, 1, 2, TRUE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (6, 1, 7, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (6, 1, 2, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (6, 1, 7, 0, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (7, 1, 3, TRUE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (7, 1, 8, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (7, 1, 3, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (7, 1, 8, 0, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (8, 1, 4, TRUE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (8, 1, 5, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (8, 1, 4, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (8, 1, 5, 0, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (9, 1, 1, TRUE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (9, 1, 7, FALSE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (9, 1, 1, 1, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (9, 1, 7, 0, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (10, 1, 2, FALSE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (10, 1, 8, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (10, 1, 2, 0, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (10, 1, 8, 1, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (11, 1, 3, FALSE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (11, 1, 5, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (11, 1, 3, 0, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (11, 1, 5, 1, 'away');
 
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (12, 1, 4, FALSE);
-INSERT INTO frames(frame_nr,match_id, player_id, won) VALUES (12, 1, 6, TRUE);
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (12, 1, 4, 0, 'home');
+INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES (12, 1, 6, 1, 'away');
 
 --CREATE TABLE frames(
 --	id SERIAL PRIMARY KEY,

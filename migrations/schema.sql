@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS teams CASCADE;
 DROP TABLE IF EXISTS players CASCADE;
 DROP TABLE IF EXISTS matches CASCADE;
 DROP TABLE IF EXISTS frames CASCADE;
-DROP MATERIALIZED VIEW IF EXISTS outcomes ;
+DROP MATERIALIZED VIEW IF EXISTS player_wins_losses ;
 DROP MATERIALIZED VIEW IF EXISTS results ;
 
 -- Up
@@ -51,6 +51,7 @@ CREATE TABLE frames(
 	frame_nr INT,
 	match_id INT REFERENCES matches(id),
 	player_id INT REFERENCES players(id),
-	won BOOLEAN DEFAULT FALSE,
+	score INT,
+	location VARCHAR(255),
 	high_break INT
 )
