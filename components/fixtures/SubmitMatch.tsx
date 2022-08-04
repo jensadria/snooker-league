@@ -13,6 +13,7 @@ const SubmitMatch: NextPage<SubmitMatchProps> = ({ players, matchDetails }) => {
   const [selectedHomePlayerID, setSelectedHomePlayerID] = useState<number>(0);
   const [selectedAwayPlayerID, setSelectedAwayPlayerID] = useState<number>(0);
   const [selectedWinner, setSelectedWinner] = useState<string>("home");
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   const homeTeamPlayers = players?.filter((player) => player.team_name === matchDetails.home_team);
   const awayTeamPlayers = players?.filter((player) => player.team_name === matchDetails.away_team);
@@ -81,9 +82,11 @@ const SubmitMatch: NextPage<SubmitMatchProps> = ({ players, matchDetails }) => {
             );
           })}
         </select>
-        <button className='w-1/6' onClick={handleSubmitScore}>
-          Submit
-        </button>
+        {!submitted && (
+          <button className='w-1/6' onClick={handleSubmitScore}>
+            Submit
+          </button>
+        )}
       </div>
     </div>
   );
