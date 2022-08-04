@@ -28,7 +28,7 @@ const Header: NextPage<HeaderProps> = () => {
             );
           })}
         </div>
-        {session ? (
+        {!session ? (
           <Link href='/api/auth/signin'>
             <a className='text-white'>Sign In</a>
           </Link>

@@ -1,5 +1,6 @@
+import axios from "axios";
 import { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MatchModel } from "../../models/match";
 import { PlayerModel } from "../../models/player";
 //import { MatchModel } from "../../models/match";
@@ -24,6 +25,10 @@ const SubmitMatch: NextPage<SubmitMatchProps> = ({ players, matchDetails }) => {
     console.log(matchDetails.match_id);
     console.log(selectedWinner);
   };
+
+  useEffect(() => {
+    axios.get("/api/frames");
+  });
 
   return (
     <div>
