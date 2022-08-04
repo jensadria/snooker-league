@@ -10,7 +10,7 @@ export default async function getAllTeams(
 	res: NextApiResponse<Data>
 ) {
 	if (req.method === 'GET') {
-		const teams = await db.query("SELECT * FROM teams")
+		const teams = await db.query("SELECT id AS team_id,name, location, address FROM teams;")
 		res.status(200).json(teams.rows)
 	}
 }

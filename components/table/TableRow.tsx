@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import { TableRowModel } from "../../models/tableRow";
 
 interface TableRowProps {
   team: { name: string; won: number; lost: number; percentage: number };
