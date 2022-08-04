@@ -29,13 +29,13 @@ const Header: NextPage<HeaderProps> = () => {
           })}
         </div>
         {session ? (
-          <button className='text-white' onClick={signOut}>
-            Signout
-          </button>
+          <Link href='/api/auth/signin'>
+            <a className='text-white'>Sign In</a>
+          </Link>
         ) : (
-          <button className='text-white' onClick={signIn}>
-            Sign In
-          </button>
+          <Link className='text-white' href='/api/auth/signout'>
+            <a className='text-white'>Sign Out</a>
+          </Link>
         )}
       </header>
     </>
