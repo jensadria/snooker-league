@@ -13,13 +13,24 @@ const LeagueTable: NextPage<TableProps> = ({ tableData }) => {
   });
 
   return (
-    <div>
-      {computedTableData
-        .sort((a, b) => b.percentage - a.percentage)
-        .map((team, index) => {
-          return <TableRow team={team} key={team.name} index={index} />;
-        })}
-    </div>
+    <table className='w-full'>
+      <thead>
+        <tr className='border-b-2 border-green-700'>
+          <th className='text-left'>Rank</th>
+          <th className='text-left'>Name</th>
+          <th className='text-right'>Won</th>
+          <th className='text-right'>Lost</th>
+          <th className='text-right'>Win %</th>
+        </tr>
+      </thead>
+      <tbody>
+        {computedTableData
+          .sort((a, b) => b.percentage - a.percentage)
+          .map((team, index) => {
+            return <TableRow team={team} key={team.name} index={index} />;
+          })}
+      </tbody>
+    </table>
   );
 };
 

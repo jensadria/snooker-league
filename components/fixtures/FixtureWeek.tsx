@@ -15,7 +15,7 @@ const FixtureWeek: NextPage<FixtureWeekProps> = ({ fixtureWeek, matches }) => {
 
   return (
     <div className='align-center m-2'>
-      <div className='w-full  border-b-2 border-b-green-500 text-xl p-2'>
+      <div className='w-full  border-b-2 border-b-green-700 text-xl p-2'>
         {format(matchDate, "PPPP")}
       </div>
       {weekMatches.map((match) => {

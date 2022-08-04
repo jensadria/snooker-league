@@ -31,7 +31,7 @@ const FixtureRow: NextPage = () => {
 
   return (
     <div className='w-4/5 mx-auto mt-5'>
-      <div className='w-4/5 mx-auto border-b-2 border-b-green-500 text-center mb-5'>
+      <div className='w-4/5 mx-auto border-b-2 border-b-green-700 text-center mb-5'>
         <div className='mr-5 text-2xl'>
           {matchDetails.date ? format(new Date(matchDetails.date), "PPPP") : ""}
         </div>

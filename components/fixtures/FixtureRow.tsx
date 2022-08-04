@@ -23,7 +23,7 @@ const FixtureRow: NextPage<FixtureRowProps> = ({ match }) => {
       <div>{match.away_score}</div>
       <div className='w-72 text-right'>{match.away_team}</div>
       {session && (
-        <Link href={`/match/${match.match_id}`} className='bg-green-500'>
+        <Link href={`/match/${match.match_id}`} className='bg-green-700'>
           Enter Scores
         </Link>
       )}

@@ -20,7 +20,8 @@ const mockLeagueTable: TableRowModel[] = [
 const LeagueTable: NextPage<LeagueTableProps> = () => {
   const [tableData, setTableData] = useState(mockLeagueTable);
   return (
-    <div className='w-4/5 m-auto'>
+    <div className='w-4/5 mx-auto mt-8'>
+      <h1 className='text-4xl font-semibold mb-5'>League Table</h1>
       <Table tableData={tableData} />
     </div>
   );
