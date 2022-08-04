@@ -9,7 +9,13 @@ interface TableProps {
 const LeagueTable: NextPage<TableProps> = ({ tableData }) => {
   console.log(tableData);
   const computedTableData = tableData.map((team) => {
-    return { ...team, percentage: +((team.won / (team.won + team.lost)) * 100).toFixed(2) };
+    let percentage;
+    if (team.won === 0 && team.lost === 0) {
+      percentage = 0;
+    } else {
+      percentage = +((team.won / (team.won + team.lost)) * 100).toFixed(2);
+    }
+    return { ...team, percentage: percentage };
   });
 
   return (

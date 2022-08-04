@@ -29,21 +29,22 @@ const LeagueTable: NextPage = () => {
     axios.get("/api/matches").then((res) => setMatches(res.data));
     axios.get("/api/teams").then((res) => setTeams(res.data));
   }, []);
+  console.log(matches);
 
   const leagueTableData = teams.map((team) => {
     const matchesPlayed = matches.filter((match) => {
       return match.home_team_id === team.team_id;
     });
-    let wins = 0;
+    let won = 0;
     let lost = 0;
 
     matchesPlayed.forEach((match) => {
       if (match.home_team_id === team.team_id) {
-        wins += +match.home_score;
-        lost += +match.away_score;
+        won += +(match.home_score || 0);
+        lost += +(match.away_score || 0);
       } else if (match.away_team_id === team.team_id) {
-        wins += +match.away_score;
-        lost += +match.home_score;
+        won += +(match.away_score || 0);
+        lost += +(match.home_score || 0);
       }
     });
 
@@ -51,7 +52,7 @@ const LeagueTable: NextPage = () => {
     //console.log(wins);
     //console.log(lost);
 
-    return { name: team.name, wins: wins, lost: lost };
+    return { name: team.name, won: won, lost: lost };
   });
 
   //  console.log(leagueTableData);
@@ -59,7 +60,7 @@ const LeagueTable: NextPage = () => {
   return (
     <div className='w-4/5 mx-auto mt-8'>
       <h1 className='text-4xl font-semibold mb-5'>League Table</h1>
-      <Table tableData={tableData} />
+      <Table tableData={leagueTableData} />
     </div>
   );
 };
