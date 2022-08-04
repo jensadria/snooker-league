@@ -11,7 +11,7 @@ import SubmitMatch from "../../components/fixtures/SubmitMatch";
 
 const FixtureRow: NextPage = () => {
   const [matchDetails, setMatchDetails] = useState<MatchModel>(emptyMatch);
-  const [players, setPlayers] = useState<PlayerModel[]>();
+  const [players, setPlayers] = useState<PlayerModel[]>([]);
   const [frames, setFrames] = useState<number>(0);
 
   //  const awayTeamPlayer = useRef();
