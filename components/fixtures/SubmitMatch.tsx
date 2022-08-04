@@ -37,7 +37,7 @@ const SubmitMatch: NextPage<SubmitMatchProps> = ({ players, matchDetails }) => {
           name='home_team'
           id=''
           className='flex-1'
-          value='0'
+          value={selectedHomePlayerID}
           onChange={(e) => setSelectedHomePlayerID(+e.target.value)}
         >
           <option value={selectedHomePlayerID}>Select Player...</option>
@@ -63,7 +63,7 @@ const SubmitMatch: NextPage<SubmitMatchProps> = ({ players, matchDetails }) => {
           <input
             type='radio'
             id='away_win'
-            value='away'
+            value={selectedAwayPlayerID}
             name='winner'
             checked={selectedWinner === "away"}
             onChange={(e) => setSelectedWinner(e.target.value)}
@@ -75,7 +75,7 @@ const SubmitMatch: NextPage<SubmitMatchProps> = ({ players, matchDetails }) => {
           name='away_team'
           id=''
           className='flex-1'
-          value='0'
+          value={selectedAwayPlayerID}
           onChange={(e) => setSelectedAwayPlayerID(+e.target.value)}
         >
           <option value='0'>Select Player...</option>

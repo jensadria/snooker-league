@@ -12,7 +12,7 @@ import SubmitMatch from "../../components/fixtures/SubmitMatch";
 const FixtureRow: NextPage = () => {
   const [matchDetails, setMatchDetails] = useState<MatchModel>(emptyMatch);
   const [players, setPlayers] = useState<PlayerModel[]>();
-  const [framesSubmitted, setFramesSubmitted] = useState<number>(0);
+  const [frames, setFrames] = useState<number>(0);
 
   //  const awayTeamPlayer = useRef();
 
@@ -22,14 +22,12 @@ const FixtureRow: NextPage = () => {
   useEffect(() => {
     if (id) {
       axios.get(`/api/matches/${id}`).then((res) => setMatchDetails(res.data));
-      //  axios.get(`/api/frames/match/${id}`).then((res) => setMatchFrames(res.data));
+      axios.get(`/api/frames/`).then((res) => setFrames(res.data));
       axios.get(`/api/players`).then((res) => setPlayers(res.data));
     }
   }, [id]);
 
-  if (+matchDetails.home_score + +matchDetails.away_score === 12) {
-    return <div>No scores to enter</div>;
-  }
+  console.log(frames);
 
   return (
     <div className='w-4/5 mx-auto mt-5'>
