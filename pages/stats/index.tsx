@@ -10,14 +10,26 @@ import { PlayerModel } from "../../models/player";
 
 const Statistics: NextPage = () => {
   const [players, setPlayers] = useState<PlayerModel[]>([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios.get(`/api/players`).then((res) => setPlayers(res.data));
   }, []);
 
+  const filteredPlayers = players.filter((player) => {
+    return player.name.toLowerCase().match(search) || player.team_name.toLowerCase().match(search);
+  });
+
   return (
     <div className='w-4/5 mx-auto'>
-      <Stats players={players} />
+      <input
+        type='search'
+        name='search'
+        id=''
+        value={search}
+        onChange={(e) => setSearch(e.target.value.toLowerCase())}
+      />
+      <Stats players={filteredPlayers} />
     </div>
   );
 };
