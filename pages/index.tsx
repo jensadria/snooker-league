@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         <meta name='description' content='Pot Black Snooker League' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      {!session && <MainPage />}
+      <MainPage />
 
       <footer className='text-3xl'></footer>
     </div>
