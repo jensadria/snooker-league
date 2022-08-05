@@ -1,7 +1,7 @@
-import { NextPage } from "next";
 import { MatchModel } from "../../models/match";
 import FixtureRow from "./FixtureRow";
 import { format } from "date-fns";
+import { FC } from "react";
 
 interface FixtureWeekProps {
   fixtureWeek: number | null;
@@ -9,8 +9,10 @@ interface FixtureWeekProps {
   key: number | null;
 }
 
-const FixtureWeek: NextPage<FixtureWeekProps> = ({ fixtureWeek, matches }) => {
-  const weekMatches = matches.filter((match) => match.match_week === fixtureWeek);
+const FixtureWeek: FC<FixtureWeekProps> = ({ fixtureWeek, matches }) => {
+  const weekMatches = matches
+    .filter((match) => match.match_week === fixtureWeek)
+    .sort((a, b) => a.match_id - b.match_id);
   const matchDate = new Date(weekMatches[0].date);
 
   return (

@@ -1,35 +1,29 @@
-import { NextPage } from "next";
 import { MatchModel } from "../../models/match";
 import { useSession } from "next-auth/react";
-import { format } from "date-fns";
-import { useState } from "react";
+import { FC } from "react";
 import Link from "next/link";
 
 interface FixtureRowProps {
   match: MatchModel;
 }
 
-const FixtureRow: NextPage<FixtureRowProps> = ({ match }) => {
+const FixtureRow: FC<FixtureRowProps> = ({ match }) => {
   const { data: session, status } = useSession();
 
   return (
-    //<Link href={`/match/${match.match_id}`}>
-
-    <div className='flex align-center m-2'>
-      <div className='w-72'>{match.location}</div>
-      <div className='w-72'>{match.home_team}</div>
-      <div>{match.home_score}</div>
-      <div className='mx-2'>VS</div>
-      <div>{match.away_score}</div>
-      <div className='w-72 text-right'>{match.away_team}</div>
-      {session && (
-        <Link href={`/match/${match.match_id}`} className='bg-green-700'>
-          Enter Scores
+    <>
+      <div className='flex align-center m-2'>
+        <div className='w-2/12'>{match.location}</div>
+        <div className='w-3/12 font-bold'>{match.home_team}</div>
+        <div className='w-1/12 text-right'>{match.home_score}</div>
+        <div className='w-1/12 mx-2 text-center'>vs</div>
+        <div className='w-1/12'>{match.away_score}</div>
+        <div className='w-3/12 font-bold text-right'>{match.away_team}</div>
+        <Link href={`/match/${match.match_id}`}>
+          <a className='w-1/12 text-right'>Details</a>
         </Link>
-      )}
-    </div>
-
-    //</Link>
+      </div>
+    </>
   );
 };
 

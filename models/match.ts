@@ -1,5 +1,5 @@
 export interface MatchModel {
-	match_id: number | null;
+	match_id: number;
 	year: number | null;
 	match_round: number | null;
 	match_week: number | null;
@@ -15,7 +15,7 @@ export interface MatchModel {
 }
 
 export const emptyMatch: MatchModel = {
-	match_id: null,
+	match_id: 0,
 	year: null,
 	match_round: null,
 	match_week: null,

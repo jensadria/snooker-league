@@ -1,20 +1,20 @@
-import { NextPage } from "next";
 import { format } from "date-fns";
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { MatchModel, emptyMatch } from "../../models/match";
 import { FrameModel } from "../../models/frame";
 import { PlayerModel } from "../../models/player";
-import Link from "next/link";
 import SubmitFrame from "../../components/fixtures/SubmitFrame";
-import { compareSync } from "bcrypt";
+import FrameRow from "../../components/fixtures/FrameRow";
 
-const FixtureRow: NextPage = () => {
+const FixtureRow: FC = () => {
   const [matchDetails, setMatchDetails] = useState<MatchModel>(emptyMatch);
   const [players, setPlayers] = useState<PlayerModel[]>([]);
   const [frames, setFrames] = useState<FrameModel[]>([]);
   const [framesSubmitted, setFramesSubmitted] = useState<number>();
+  const { data: session, status } = useSession();
 
   const router = useRouter();
   const { id } = router.query;
@@ -24,12 +24,14 @@ const FixtureRow: NextPage = () => {
       axios.get(`/api/matches/${id}`).then((res) => setMatchDetails(res.data));
       axios.get(`/api/frames/`).then((res) => {
         setFrames(res.data);
-        const numberOfFrames = [
+        const frames = [
           ...new Set(
-            res.data.filter((frame) => frame.match_id === +id).map((frame) => frame.frame_nr)
+            res.data
+              .filter((frame) => frame.match_id === +id)
+              .map((frame) => parseInt(frame.frame_nr))
           ),
         ].length;
-        setFramesSubmitted(numberOfFrames);
+        setFramesSubmitted(frames);
       });
       axios.get(`/api/players`).then((res) => setPlayers(res.data));
     }
@@ -40,26 +42,41 @@ const FixtureRow: NextPage = () => {
   const homePlayers = matchFrames
     .filter((frame) => frame.team_id === matchDetails.home_team_id)
     .sort((a, b) => a.frame_nr - b.frame_nr);
+
   const awayPlayers = matchFrames
     .filter((frame) => frame.team_id === matchDetails.away_team_id)
     .sort((a, b) => a.frame_nr - b.frame_nr);
 
-  //  console.log(framesSubmitted);
-
   return (
-    <div className='w-4/5 mx-auto mt-5'>
-      <div className='w-4/5 mx-auto border-b-2 border-b-green-700 text-center mb-5'>
-        <div className='mr-5 text-2xl'>
-          {matchDetails.date ? format(new Date(matchDetails.date), "PPPP") : ""}
+    <>
+      <div className='w-4/5 mx-auto mt-5'>
+        <div className='w-4/5 mx-auto border-b-2 border-b-green-700 text-center mb-5'>
+          <div className='mr-5 text-2xl'>
+            {matchDetails.date ? format(new Date(matchDetails.date), "PPPP") : ""}
+          </div>
+          <div className='mr-5 text-2xl font-bold'>
+            {matchDetails.home_team} VS {matchDetails.away_team}
+          </div>
+          <div className='mr-5 text-2xl italic'>{matchDetails.location}</div>
         </div>
-        <div className='mr-5 text-2xl font-bold'>
-          {matchDetails.home_team} VS {matchDetails.away_team}
+        <div>
+          {homePlayers.map((frame, index) => {
+            return (
+              <FrameRow
+                key={frame.frame_id}
+                homePlayer={homePlayers[index]}
+                awayPlayer={awayPlayers[index]}
+              />
+            );
+          })}
         </div>
-        <div className='mr-5 text-2xl italic'>{matchDetails.location}</div>
+        <div>
+          {session && framesSubmitted < 12 && (
+            <SubmitFrame players={players} matchDetails={matchDetails} />
+          )}
+        </div>
       </div>
-      {/*// HOME TEAM*/}
-      {framesSubmitted < 12 && <SubmitFrame players={players} matchDetails={matchDetails} />}
-    </div>
+    </>
   );
 };
 
