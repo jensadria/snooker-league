@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import db from "../../../migrations/db";
 
 //type Data = {
-//	name: string;
+//	message: string;
 //};
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -16,7 +16,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 	if (req.method === "POST") {
 		const { homePlayer, awayPlayer } = req.body
-		console.log(homePlayer, awayPlayer)
-		res.json({ message: "Player" })
+		const insertQuery =
+			"INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES ($1, $2, $3, $4, $5);";
+		db.query(insertQuery, [homePlayer.frame_nr, homePlayer.match_id, homePlayer.player_id, homePlayer.score, homePlayer.location])
+		db.query(insertQuery, [awayPlayer.frame_nr, awayPlayer.match_id, awayPlayer.player_id, awayPlayer.score, awayPlayer.location])
+		db.query("REFRESH MATERIALIZED VIEW results")
+		db.query("REFRESH MATERIALIZED VIEW player_wins_losses")
+
+		res.status(200).json({ message: "Success" })
 	}
 }
