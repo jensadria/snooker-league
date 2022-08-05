@@ -9,16 +9,24 @@ const Home: NextPage = () => {
   const { data: session, status } = useSession();
 
   return (
-    <div className='w-4/5 mx-auto mt-8'>
+    <>
       <Head>
         <title>Snooker League</title>
         <meta name='description' content='Pot Black Snooker League' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <MainPage />
-
-      <footer className='text-3xl'></footer>
-    </div>
+      <div className='h-screen'>
+        <div
+          className='bg-fixed bg-cover bg-no-repeat h-4/5 bg-top bg-gradient-to-tr'
+          style={{ backgroundImage: "url('./snookerheader.jpg')" }}
+        >
+          <div className='w-4/5 mx-auto pt-8'>
+            <MainPage />
+          </div>
+        </div>
+        <footer className='text-3xl'></footer>
+      </div>
+    </>
   );
 };
 

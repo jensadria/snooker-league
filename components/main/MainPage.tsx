@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import MainPageLink from "./MainPageLink";
+import Image from "next/image";
 
 const MainPage: NextPage = () => {
   const links = [
@@ -10,7 +11,7 @@ const MainPage: NextPage = () => {
   ];
   return (
     <div>
-      <h1 className='text-6xl font-bold mb-8 text-green-700'>Pot Black Snooker League</h1>
+      <h1 className='text-6xl font-bold mb-8 text-white'>Pot Black Snooker League</h1>
       <div className='align-center flex flex-col'>
         {links.map((link, index) => {
           return <MainPageLink link={link} key={index} />;

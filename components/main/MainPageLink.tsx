@@ -8,7 +8,7 @@ interface MainPageLinkProps {
 const MainPageLink: NextPage<MainPageLinkProps> = ({ link }) => {
   return (
     <Link href={link.link}>
-      <a className='font-semibold text-4xl py-2 hover:underline hover:decoration-green-700 w-fit'>
+      <a className='font-semibold text-4xl text-white py-2 hover:underline hover:decoration-green-500 w-fit'>
         {link.title}
       </a>
     </Link>
