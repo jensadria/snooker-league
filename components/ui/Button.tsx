@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import React, { FC } from "react";
 
 interface ButtonProps {
-  onClick: () => void;
+  onClick: any;
   children: React.ReactNode;
 }
 

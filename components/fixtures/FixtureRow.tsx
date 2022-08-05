@@ -20,7 +20,7 @@ const FixtureRow: FC<FixtureRowProps> = ({ match }) => {
         <div className='w-1/12'>{match.away_score}</div>
         <div className='w-3/12 font-bold text-right'>{match.away_team}</div>
         <Link href={`/match/${match.match_id}`}>
-          <a className='w-1/12 text-right'>Details</a>
+          <a className='w-1/12 text-right hover:underline hover:decoration-green-500'>Details</a>
         </Link>
       </div>
     </>

@@ -29,11 +29,10 @@ const LeagueTable: NextPage = () => {
     axios.get("/api/matches").then((res) => setMatches(res.data));
     axios.get("/api/teams").then((res) => setTeams(res.data));
   }, []);
-  console.log(matches);
 
   const leagueTableData = teams.map((team) => {
     const matchesPlayed = matches.filter((match) => {
-      return match.home_team_id === team.team_id;
+      return match.home_team_id === team.team_id || match.away_team_id === team.team_id;
     });
     let won = 0;
     let lost = 0;

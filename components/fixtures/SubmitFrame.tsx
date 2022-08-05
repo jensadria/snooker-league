@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { MatchModel } from "../../models/match";
 import { PlayerModel } from "../../models/player";
+import Button from "../../components/ui/Button";
 import Router from "next/router";
 
 //import { MatchModel } from "../../models/match";
@@ -17,17 +18,11 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails, frames
   const [selectedHomePlayerID, setSelectedHomePlayerID] = useState<number>(0);
   const [selectedAwayPlayerID, setSelectedAwayPlayerID] = useState<number>(0);
   const [selectedWinner, setSelectedWinner] = useState<string>("home");
-  const [submitted, setSubmitted] = useState<boolean>(false);
 
   const homeTeamPlayers = players?.filter((player) => player.team_name === matchDetails.home_team);
   const awayTeamPlayers = players?.filter((player) => player.team_name === matchDetails.away_team);
 
   const handleSubmitScore = (e) => {
-    //console.log(framesSubmitted + 1);
-    //console.log(selectedHomePlayerID);
-    //console.log(selectedAwayPlayerID);
-    //console.log(matchDetails.match_id);
-    //console.log(selectedWinner);
     const data = {
       homePlayer: {
         frame_nr: framesSubmitted + 1,
@@ -44,21 +39,17 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails, frames
         location: "away",
       },
     };
-    //console.log(data);
-    axios.post("/api/frames/", data).then((res) => Router.push(`/match/${matchDetails.match_id}`));
-  };
 
-  //  useEffect(() => {
-  //    axios.get("/api/frames");
-  //  });
+    axios.post("/api/frames/", data).then((res) => console.log(res));
+  };
 
   return (
     <div>
-      <div className='w-4/5 mx-auto mt-5 flex'>
+      <div className='w-4/5 mx-auto pt-8 border-t-2 flex'>
         <select
           name='home_team'
           id=''
-          className='flex-1'
+          className='flex-1 bg-gray-200 rounded-md'
           value={selectedHomePlayerID}
           onChange={(e) => setSelectedHomePlayerID(+e.target.value)}
         >
@@ -72,7 +63,7 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails, frames
           })}
         </select>
         {/* RADIO BUTTONS */}
-        <div className='w-1/6 text-center flex justify-evenly'>
+        <div className='w-1/6 text-center flex justify-evenly align-middle'>
           <label htmlFor='home_win'>Home</label>
           <input
             type='radio'
@@ -96,7 +87,7 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails, frames
         <select
           name='away_team'
           id=''
-          className='flex-1'
+          className='flex-1 bg-gray-200 rounded-md'
           value={selectedAwayPlayerID}
           onChange={(e) => setSelectedAwayPlayerID(+e.target.value)}
         >
@@ -109,9 +100,7 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails, frames
             );
           })}
         </select>
-        <button className='w-1/6' onClick={handleSubmitScore}>
-          Submit
-        </button>
+        <Button onClick={handleSubmitScore}>Submit</Button>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ const FrameRow: FC<FrameRowProps> = ({ homePlayer, awayPlayer }) => {
         <div className={`w-1/2 text-right mr-4 ${homePlayer.score === 1 && "bg-green-200"}`}>
           {homePlayer.name}
         </div>
-        <div>VS</div>
+        <div>vs</div>
         <div className={`w-1/2 ml-4 ${awayPlayer.score === 1 && "bg-green-200"}`}>
           {awayPlayer.name}
         </div>
