@@ -23,7 +23,9 @@ const Header: NextPage<HeaderProps> = () => {
           {links.map((link) => {
             return (
               <Link href={link.link} key={link.title}>
-                <a className='text-2xl p-3 text-white hover:text-red-600'>{link.title}</a>
+                <a className='text-2xl p-3 text-white hover:text-green-500 transition-colors'>
+                  {link.title}
+                </a>
               </Link>
             );
           })}

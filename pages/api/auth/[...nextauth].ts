@@ -3,7 +3,6 @@ import CredentialProvider from "next-auth/providers/credentials";
 //import { compare } from 'bcrypt'; 
 
 export default NextAuth({
-	site: (process.env.NEXTAUTH_URL),
 	providers: [
 		CredentialProvider({
 			name: "credentials",

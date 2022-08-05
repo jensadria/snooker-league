@@ -12,8 +12,6 @@ const Fixtures: NextPage = () => {
 
   useEffect(() => {
     axios.get("/api/matches").then((res) => setMatches(res.data));
-    //  const fetchedFixtures = GetData.getAllFixtures();
-    //  setFixtures(fetchedFixtures);
   }, []);
 
   const fixtureWeeks = Array.from(new Set(matches.map((match) => match.match_week)));
