@@ -3,14 +3,17 @@ import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { MatchModel } from "../../models/match";
 import { PlayerModel } from "../../models/player";
+import Router from "next/router";
+
 //import { MatchModel } from "../../models/match";
 
 interface SubmitFrameProps {
   players: PlayerModel[];
   matchDetails: MatchModel;
+  framesSubmitted: number;
 }
 
-const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails }) => {
+const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails, framesSubmitted }) => {
   const [selectedHomePlayerID, setSelectedHomePlayerID] = useState<number>(0);
   const [selectedAwayPlayerID, setSelectedAwayPlayerID] = useState<number>(0);
   const [selectedWinner, setSelectedWinner] = useState<string>("home");
@@ -20,15 +23,34 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails }) => {
   const awayTeamPlayers = players?.filter((player) => player.team_name === matchDetails.away_team);
 
   const handleSubmitScore = (e) => {
-    console.log(selectedHomePlayerID);
-    console.log(selectedAwayPlayerID);
-    console.log(matchDetails.match_id);
-    console.log(selectedWinner);
+    //console.log(framesSubmitted + 1);
+    //console.log(selectedHomePlayerID);
+    //console.log(selectedAwayPlayerID);
+    //console.log(matchDetails.match_id);
+    //console.log(selectedWinner);
+    const data = {
+      homePlayer: {
+        frame_nr: framesSubmitted + 1,
+        match_id: matchDetails.match_id,
+        player_id: selectedHomePlayerID,
+        score: selectedWinner === "home" ? 1 : 0,
+        location: "home",
+      },
+      awayPlayer: {
+        frame_nr: framesSubmitted + 1,
+        match_id: matchDetails.match_id,
+        player_id: selectedAwayPlayerID,
+        score: selectedWinner === "away" ? 1 : 0,
+        location: "away",
+      },
+    };
+    //console.log(data);
+    axios.post("/api/frames/", data).then((res) => Router.push(`/match/${matchDetails.match_id}`));
   };
 
-  useEffect(() => {
-    axios.get("/api/frames");
-  });
+  //  useEffect(() => {
+  //    axios.get("/api/frames");
+  //  });
 
   return (
     <div>
@@ -87,11 +109,9 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails }) => {
             );
           })}
         </select>
-        {!submitted && (
-          <button className='w-1/6' onClick={handleSubmitScore}>
-            Submit
-          </button>
-        )}
+        <button className='w-1/6' onClick={handleSubmitScore}>
+          Submit
+        </button>
       </div>
     </div>
   );

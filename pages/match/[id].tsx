@@ -13,7 +13,7 @@ const FixtureRow: FC = () => {
   const [matchDetails, setMatchDetails] = useState<MatchModel>(emptyMatch);
   const [players, setPlayers] = useState<PlayerModel[]>([]);
   const [frames, setFrames] = useState<FrameModel[]>([]);
-  const [framesSubmitted, setFramesSubmitted] = useState<number>();
+  const [framesSubmitted, setFramesSubmitted] = useState<number>(0);
   const { data: session, status } = useSession();
 
   const router = useRouter();
@@ -44,6 +44,8 @@ const FixtureRow: FC = () => {
     .filter((frame) => frame.team_id === matchDetails.away_team_id)
     .sort((a, b) => a.frame_nr - b.frame_nr);
 
+  console.log(framesSubmitted);
+
   return (
     <>
       <div className='w-4/5 mx-auto mt-5'>
@@ -69,7 +71,11 @@ const FixtureRow: FC = () => {
         </div>
         <div>
           {session && framesSubmitted < 12 && (
-            <SubmitFrame players={players} matchDetails={matchDetails} />
+            <SubmitFrame
+              players={players}
+              matchDetails={matchDetails}
+              framesSubmitted={framesSubmitted}
+            />
           )}
         </div>
       </div>
