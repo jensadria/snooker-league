@@ -8,17 +8,17 @@ interface StatsProps {
 const Stats: NextPage<StatsProps> = ({ players }) => {
   return (
     <div className='align-center m-2'>
-      <table>
+      <table className='w-full'>
         <thead>
           <tr className='text-left'>
-            <th className='w-80'>Name</th>
-            <th className='w-64'>Team</th>
-            <th>Won</th>
-            <th>Lost</th>
-            <th>Last Year&apos;s Handicap</th>
-            <th>Total Frames</th>
-            <th>Win Percentage</th>
-            <th>Handicap</th>
+            <th className='w-3/12'>Name</th>
+            <th className='w-3/12'>Team</th>
+            <th className='text-right'>Won</th>
+            <th className='text-right'>Lost</th>
+            <th className='text-right'>Last Year&apos;s Handicap</th>
+            <th className='text-right'>Total Frames</th>
+            <th className='text-right'>Win Percentage</th>
+            <th className='text-right'>Handicap</th>
           </tr>
         </thead>
         <PlayerRow players={players} />

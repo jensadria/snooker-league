@@ -18,8 +18,8 @@ const Header: NextPage<HeaderProps> = () => {
 
   return (
     <>
-      <header className='flex bg-black'>
-        <div className=' w-4/5 mx-auto'>
+      <header className='bg-black h-max'>
+        <div className='flex w-4/5 mx-auto'>
           {links.map((link) => {
             return (
               <Link href={link.link} key={link.title}>
@@ -27,16 +27,16 @@ const Header: NextPage<HeaderProps> = () => {
               </Link>
             );
           })}
+          {!session ? (
+            <Link href='/api/auth/signin'>
+              <a className='text-white ml-auto'>Sign In</a>
+            </Link>
+          ) : (
+            <Link className='text-white' href='/api/auth/signout'>
+              <a className='text-white ml-auto align-middle'>Sign Out</a>
+            </Link>
+          )}
         </div>
-        {!session ? (
-          <Link href='/api/auth/signin'>
-            <a className='text-white'>Sign In</a>
-          </Link>
-        ) : (
-          <Link className='text-white' href='/api/auth/signout'>
-            <a className='text-white'>Sign Out</a>
-          </Link>
-        )}
       </header>
     </>
   );
