@@ -20,8 +20,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			"INSERT INTO frames(frame_nr,match_id, player_id, score, location) VALUES ($1, $2, $3, $4, $5);";
 		db.query(insertQuery, [homePlayer.frame_nr, homePlayer.match_id, homePlayer.player_id, homePlayer.score, homePlayer.location])
 		db.query(insertQuery, [awayPlayer.frame_nr, awayPlayer.match_id, awayPlayer.player_id, awayPlayer.score, awayPlayer.location])
-		db.query("REFRESH MATERIALIZED VIEW results")
 		db.query("REFRESH MATERIALIZED VIEW player_wins_losses")
+		db.query("REFRESH MATERIALIZED VIEW results")
 
 		res.status(200).json({ message: "Success" })
 	}
