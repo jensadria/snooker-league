@@ -1,8 +1,11 @@
 import { NextPage } from "next";
 import { PlayerModel } from "../../models/player";
 import PlayerRow from "../../components/stats/PlayerRow";
+
+type PlayerRowModel = PlayerModel & { handicap: number; win_percentage: number };
+
 interface StatsProps {
-  players: PlayerModel[];
+  players: PlayerRowModel[];
 }
 
 const Stats: NextPage<StatsProps> = ({ players }) => {

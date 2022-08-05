@@ -14,5 +14,6 @@ SUM(score)FILTER(WHERE location = 'away') AS away_score
 FROM frames
 GROUP BY match_id;
 
- 
+--REFRESH MATERIALIZED VIEW results;
+--REFRESH MATERIALIZED VIEW player_wins_losses;
 
