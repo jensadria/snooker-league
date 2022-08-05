@@ -5,12 +5,12 @@ import { MatchModel } from "../../models/match";
 import { PlayerModel } from "../../models/player";
 //import { MatchModel } from "../../models/match";
 
-interface SubmitMatchProps {
+interface SubmitFrameProps {
   players: PlayerModel[];
   matchDetails: MatchModel;
 }
 
-const SubmitMatch: NextPage<SubmitMatchProps> = ({ players, matchDetails }) => {
+const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails }) => {
   const [selectedHomePlayerID, setSelectedHomePlayerID] = useState<number>(0);
   const [selectedAwayPlayerID, setSelectedAwayPlayerID] = useState<number>(0);
   const [selectedWinner, setSelectedWinner] = useState<string>("home");
@@ -97,4 +97,4 @@ const SubmitMatch: NextPage<SubmitMatchProps> = ({ players, matchDetails }) => {
   );
 };
 
-export default SubmitMatch;
+export default SubmitFrame;

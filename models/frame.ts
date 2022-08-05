@@ -1,13 +1,11 @@
 export interface FrameModel {
 	frame_id: number;
 	frame_nr: number;
-	//fixture_id: number;
-	player_home_id: number;
-	player_home: string;
-	player_home_score: number;
-	player_away_id: number;
-	player_away: string;
-	player_away_score: number;
-	highest_break?: number;
-	highest_break_score?: number
+	high_break?: number;
+	location: string;
+	match_id: number;
+	name: string;
+	player_id: number;
+	score: number;
+	team_id: number;
 }

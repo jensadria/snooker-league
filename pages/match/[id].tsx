@@ -4,17 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { MatchModel, emptyMatch } from "../../models/match";
-//import { FrameModel } from "../../models/frame";
+import { FrameModel } from "../../models/frame";
 import { PlayerModel } from "../../models/player";
 import Link from "next/link";
-import SubmitMatch from "../../components/fixtures/SubmitMatch";
+import SubmitFrame from "../../components/fixtures/SubmitFrame";
+import { compareSync } from "bcrypt";
 
 const FixtureRow: NextPage = () => {
   const [matchDetails, setMatchDetails] = useState<MatchModel>(emptyMatch);
   const [players, setPlayers] = useState<PlayerModel[]>([]);
-  const [frames, setFrames] = useState<number>(0);
-
-  //  const awayTeamPlayer = useRef();
+  const [frames, setFrames] = useState<FrameModel[]>([]);
+  const [framesSubmitted, setFramesSubmitted] = useState<number>();
 
   const router = useRouter();
   const { id } = router.query;
@@ -22,12 +22,29 @@ const FixtureRow: NextPage = () => {
   useEffect(() => {
     if (id) {
       axios.get(`/api/matches/${id}`).then((res) => setMatchDetails(res.data));
-      axios.get(`/api/frames/`).then((res) => setFrames(res.data));
+      axios.get(`/api/frames/`).then((res) => {
+        setFrames(res.data);
+        const numberOfFrames = [
+          ...new Set(
+            res.data.filter((frame) => frame.match_id === +id).map((frame) => frame.frame_nr)
+          ),
+        ].length;
+        setFramesSubmitted(numberOfFrames);
+      });
       axios.get(`/api/players`).then((res) => setPlayers(res.data));
     }
   }, [id]);
 
-  console.log(frames);
+  const matchFrames = frames?.filter((frame) => frame.match_id === matchDetails.match_id);
+
+  const homePlayers = matchFrames
+    .filter((frame) => frame.team_id === matchDetails.home_team_id)
+    .sort((a, b) => a.frame_nr - b.frame_nr);
+  const awayPlayers = matchFrames
+    .filter((frame) => frame.team_id === matchDetails.away_team_id)
+    .sort((a, b) => a.frame_nr - b.frame_nr);
+
+  //  console.log(framesSubmitted);
 
   return (
     <div className='w-4/5 mx-auto mt-5'>
@@ -41,7 +58,7 @@ const FixtureRow: NextPage = () => {
         <div className='mr-5 text-2xl italic'>{matchDetails.location}</div>
       </div>
       {/*// HOME TEAM*/}
-      <SubmitMatch players={players} matchDetails={matchDetails} />
+      {framesSubmitted < 12 && <SubmitFrame players={players} matchDetails={matchDetails} />}
     </div>
   );
 };
