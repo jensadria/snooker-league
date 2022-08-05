@@ -24,14 +24,11 @@ const FixtureRow: FC = () => {
       axios.get(`/api/matches/${id}`).then((res) => setMatchDetails(res.data));
       axios.get(`/api/frames/`).then((res) => {
         setFrames(res.data);
-        const frames = [
-          ...new Set(
-            res.data
-              .filter((frame) => frame.match_id === +id)
-              .map((frame) => parseInt(frame.frame_nr))
-          ),
-        ].length;
-        setFramesSubmitted(frames);
+        const framesQty = res.data
+          .filter((frame) => frame.match_id === +id)
+          .map((frame) => parseInt(frame.frame_nr))
+          .reduce((acc, curr) => (!acc.includes(curr) ? acc.concat(curr) : acc), []);
+        setFramesSubmitted(framesQty.length);
       });
       axios.get(`/api/players`).then((res) => setPlayers(res.data));
     }

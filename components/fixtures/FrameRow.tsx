@@ -1,4 +1,3 @@
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { FC } from "react";
 import { FrameModel } from "../../models/frame";
@@ -9,8 +8,7 @@ interface FrameRowProps {
 }
 
 const FrameRow: FC<FrameRowProps> = ({ homePlayer, awayPlayer }) => {
-  const { data: session, status } = useSession();
-  console.log(homePlayer);
+  //  console.log(homePlayer);
 
   return (
     <>

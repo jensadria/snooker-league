@@ -51,6 +51,7 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails }) => {
         </select>
         {/* RADIO BUTTONS */}
         <div className='w-1/6 text-center flex justify-evenly'>
+          <label htmlFor='home_win'>Home</label>
           <input
             type='radio'
             id='home_win'
@@ -59,7 +60,6 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails }) => {
             checked={selectedWinner === "home"}
             onChange={(e) => setSelectedWinner(e.target.value)}
           />
-          <label htmlFor='home_win'>Home</label>
           <input
             type='radio'
             id='away_win'
