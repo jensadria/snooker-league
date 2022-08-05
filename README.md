@@ -1,34 +1,60 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Snooker League App
 
-First, run the development server:
+[Snooker League App](https://nextjs.org/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## The App
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This app is a portal for all members of a snooker league. Players can view their teams's current league standings and see their individual statistics. Because it is a handicapped tournament, players need to see what their current handicap is so they can adjust their points accordingly for their next match. This app makes it easy for all players to look up any relevant information.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+When all the matches on any given matchday have been played, the league coordinator can sign in and enter in the results, and the scores will then be immediately updated.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## The Technologies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Languages
 
-## Learn More
+- HTML
+- CSS
+- Javascript
+- Typescript
+- SQL
 
-To learn more about Next.js, take a look at the following resources:
+### Frameworks/Libraries
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ReactJS
+- NextJS
+- NextAuth
+- PostgreSQL
+- Tailwind
+- Jest
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Packages
 
-## Deploy on Vercel
+- Axios
+- PG (for Postgres)
+- Bcrypt
+- Date-FNS
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## The Approach
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This is a data-heavy app so the main hurdle was organising the database in such a way that makes sense and is easier to query. After a few revamps of the schemas I nailed down the structure of the data and the relations.
+After initially trying to query the data in such a way that I can directly display it as is, I pivoted to an approach that allowed the front-end to process the data instead(despite being a data app, the dataset was still very small).
+
+I have decided to use the NextJS framework to build the app. This sped up development because it comes with a router out of the box and additionally, I could build my backend on the same server. For now I have chosen to use client-side data fetching as opposed to the built-in server-side rendering.
+Tailwind was my choice for styling the front-end, it is ideal for quick prototyping and building simple UIs efficiently.
+
+## Installation Instructions
+
+1. Clone the Project
+2. Install all necessary dependencies - `npm install` or `yarn install`
+3. Start a Postgres server and create a database called 'snooker_league' then add mock data by running- `npm run db`
+4. Run the app by running - `npm run start`
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. To run tests, use the command `npm run test` while the server is still running.
+
+## Hurdles
+
+The main hurdle for this project was time. Initially I had set out to do an array of features but ultimately I had to cut down by about 80% to meet the deadline. This is, however, only the beginning of the project and I set out to to implement those forgotten features.
+
+## Features To Do
