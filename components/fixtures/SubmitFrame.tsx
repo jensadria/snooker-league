@@ -40,7 +40,9 @@ const SubmitFrame: NextPage<SubmitFrameProps> = ({ players, matchDetails, frames
       },
     };
 
-    axios.post("/api/frames/", data).then((res) => console.log(res));
+    axios
+      .post("/api/frames/", data)
+      .then((res) => (window.location.href = `/match/${matchDetails.match_id}`));
   };
 
   return (
